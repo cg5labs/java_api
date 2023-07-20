@@ -1,0 +1,31 @@
+---
+version: '2'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+    networks:
+      - postgres-network
+
+  java:
+    image: registry.access.redhat.com/ubi8/openjdk-17:latest
+    command: java -jar /tmp/api-0.0.1-SNAPSHOT.jar --spring.config.location=/config/application.properties
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    # Path on the host, relative to the Compose file
+    volumes:
+      - ./target:/tmp
+      - ./src/main/resources:/config
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
