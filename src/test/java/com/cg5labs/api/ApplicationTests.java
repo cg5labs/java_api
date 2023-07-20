@@ -1,4 +1,4 @@
-package com.application.springbootpostgresqlapi;
+package com.cg5labs.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
