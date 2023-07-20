@@ -1,0 +1,13 @@
+{
+    "maven.terminal.favorites": [
+        {
+            "command": "package -DskipTests=true",
+            "debug": false
+        },
+        {
+            "command": "clean package -DskipTests=true",
+            "debug": false
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
