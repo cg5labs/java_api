@@ -1,6 +1,6 @@
 
 # any paths following target/*
-target/
+api/target/
 
 # Compiled class file
 *.class
@@ -13,6 +13,13 @@ target/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+# macos
+.DS_Store
+
+# IDEA
+.idea
+api.iml
 
 # Package Files #
 *.jar

@@ -4,17 +4,17 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity()
-@Table(name = "students")
-public class Student {
+@Table(name = "customers")
+public class Customer {
 
     @Id
     @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
+            name = "customer_sequence",
+            sequenceName = "customer_sequence",
             allocationSize = 1
     )
     @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_sequence")
     private Long id;
 
     private String name;
@@ -22,16 +22,15 @@ public class Student {
     private String email;
     private LocalDate dob;
 
-    public Student(String name, Integer age, String email, LocalDate dob) {
+    public Customer(String name, Integer age, String email, LocalDate dob) {
         this.name = name;
         this.age = age;
         this.email = email;
         this.dob = dob;
     }
 
-    public Student() {
+    public Customer() {
     }
-
 
     public Long getId() {
         return id;
@@ -75,7 +74,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
