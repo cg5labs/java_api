@@ -22,7 +22,7 @@ services:
     # Path on the host, relative to the Compose file
     volumes:
       - ./api/target:/tmp
-      - ./src/main/resources:/config
+      - ./api/src/main/resources:/config
     networks:
       - postgres-network
 
