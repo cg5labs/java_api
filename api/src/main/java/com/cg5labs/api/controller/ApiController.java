@@ -1,4 +1,4 @@
-package com.cg5labs.api;
+package com.cg5labs.api.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,5 +11,8 @@ public class ApiController {
     public String index() {
         return "Greetings from Spring Boot!";
     }
+
+    //@GetMapping("/customer/create")
+    //public String customer() {}
 
 }
