@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.*;
 
 @Service
 public class BookmarkService {
@@ -37,8 +38,25 @@ public class BookmarkService {
         if(bookmarkOptional.isPresent()){
             throw new IllegalStateException("URL is already taken !!!");
         }
+        if(verifyBookmark(bookmark)){
+            bookmarkRepository.save(bookmark);
+        } else {
+            throw new IllegalStateException("URL does not start with https://!!!");
+        }
+    }
 
-        bookmarkRepository.save(bookmark);
+    public boolean verifyBookmark(Bookmark bookmark) {
+
+        String url  = bookmark.getUrl();
+
+        // check if URL starts with http or https
+        String regexStr = "http.*";
+        Pattern pattern = Pattern.compile(regexStr);
+        Matcher matcher = pattern.matcher(url);
+
+        //System.out.println(matcher.matches());
+        return matcher.matches();
+
     }
 
     public void deleteBookmark(Long id) {
