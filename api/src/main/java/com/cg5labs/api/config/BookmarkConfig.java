@@ -5,9 +5,6 @@ import com.cg5labs.api.repository.BookmarkRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.awt.print.Book;
-import java.time.LocalDate;
 import java.util.List;
 
 @Configuration
@@ -28,3 +25,4 @@ public class BookmarkConfig {
         };
     }
 }
+
