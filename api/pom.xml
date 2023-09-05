@@ -11,10 +11,13 @@
 	<groupId>com.cg5labs</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>${package_type}</packaging>
 	<name>API</name>
 	<description>Demo project for Spring Boot JPA</description>
 	<properties>
 		<java.version>17</java.version>
+		<!-- Set this to 'jar|war' to build, override in mvn build '-Dpackage_type=war' -->
+		<package_type>jar</package_type>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,7 +28,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!-- To build war-files -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
