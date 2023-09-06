@@ -12,6 +12,7 @@
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>${package_type}</packaging>
+
 	<name>API</name>
 	<description>Demo project for Spring Boot JPA</description>
 	<properties>
@@ -46,6 +47,8 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<!-- finalName used for Tomcat context-path	-->
+		<finalName>Bookmarks</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
