@@ -14,7 +14,7 @@ services:
 
   java:
     image: registry.access.redhat.com/ubi8/openjdk-17:latest
-    command: java -jar /tmp/api-0.0.1-SNAPSHOT.jar --spring.config.location=/config/application.properties
+    command: java -jar /tmp/Bookmarks.jar --spring.config.location=/config/application.properties
     ports:
       - "8080:8080"
     depends_on:

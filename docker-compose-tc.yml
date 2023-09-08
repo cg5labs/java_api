@@ -1,0 +1,30 @@
+---
+version: '2'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: bookmarkdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+    networks:
+      - postgres-network
+  java:
+    image: tomcat:9-jdk17
+    command: "bash -c \"cp -rv /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps/ ; cp /tmp/tomcat/conf/manager/context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml; catalina.sh run \""
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    # Path on the host, relative to the Compose file
+    volumes:
+      - ./api/target/Bookmarks.war:/usr/local/tomcat/webapps/Bookmarks.war
+      - ./tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./tomcat/conf/manager:/tmp/tomcat/conf/manager
+    networks:
+      - postgres-network
+networks:
+  postgres-network:
+    driver: bridge
