@@ -1,0 +1,15 @@
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  datasource:
+    url: "jdbc:postgresql://postgres:5432/bookmarkdb"
+    username: "postgres"
+    password: "password123"
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true

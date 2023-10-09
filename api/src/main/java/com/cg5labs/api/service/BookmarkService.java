@@ -57,7 +57,8 @@ public class BookmarkService {
         logger.info("Check if bookmark verification checks pass.");
         if(verifyBookmark(bookmark)){
             // give the bookmark object a datestamp
-            bookmark.setCreated();
+            bookmark.setCreatedOn();
+            bookmark.setCreatedBy("API");
             bookmarkRepository.save(bookmark);
         } else {
             throw new IllegalStateException("URL does not start with https://!!!");

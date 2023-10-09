@@ -17,12 +17,14 @@ public class Bookmark {
     private Long id;
     private String url;
     private String description;
-    private LocalDate created;
+    private LocalDate createdOn;
+    private String createdBy;
+
 
     public Bookmark(String url, String description) {
         this.url = url;
         this.description = description;
-        this.created = setCreated();
+        this.createdOn = setCreatedOn();
     }
 
     public Bookmark() {}
@@ -52,13 +54,20 @@ public class Bookmark {
     }
 
     public LocalDate getCreated() {
-        return created;
+        return createdOn;
     }
 
-    public LocalDate setCreated() {
-        this.created = LocalDate.now();
-        return created;
+    public LocalDate setCreatedOn() {
+        this.createdOn = LocalDate.now();
+        return createdOn;
     }
 
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 
 }
